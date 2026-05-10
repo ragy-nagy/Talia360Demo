@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { LessonPlan, Holiday, Course, TimetableEvent, Language } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 export const generateSmartTimetable = async (
   startDate: string,
@@ -266,7 +266,7 @@ export const predictIntakeAndSections = async (
 };
 
 export const fetchEgyptianHolidays = async (year: string, language: Language): Promise<Holiday[]> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: `List all official national holidays in Egypt for the year ${year}. Return the data in JSON format as an array of Holiday objects with id, nameEn, nameAr, date (YYYY-MM-DD), and type: "National". Language preference: ${language}.`,
