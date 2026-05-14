@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { الطالب, Language, ReportCard } from '../types';
+import { Student, Language, ReportCard } from '../types';
 import { Button } from '../components/Button';
 import AdmissionForm from '../components/AdmissionForm';
 import { 
@@ -35,7 +35,7 @@ import {
 } from 'lucide-react';
 
 interface StudentProfileProps {
-  student: الطالب;
+  student: Student;
   language: Language;
   onBack: () => void;
   onEditProfile?: () => void;
